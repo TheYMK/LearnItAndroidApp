@@ -2,8 +2,32 @@ package com.kaymkassai.learnit;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.parse.LogInCallback;
+import com.parse.ParseAnalytics;
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener {
+
+    //Views
+    EditText txtUsername, txtPassword;
+    TextView logo, txtSwitch;
+    Button btnLogin;
+    RelativeLayout background;
+
+    //Boolean to check if in login mode or signup mode
+    Boolean loginModeActive = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -13,5 +37,93 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
 
+        // Setting my views
+        txtUsername = findViewById(R.id.txtUsername);
+        txtPassword = findViewById(R.id.txtPassword);
+        txtSwitch = findViewById(R.id.txtSwitch);
+        logo = findViewById(R.id.logo);
+        btnLogin = findViewById(R.id.btnLogin);
+        background = findViewById(R.id.background);
+
+
+        background.setOnClickListener(this);
+        logo.setOnClickListener(this);
+        txtSwitch.setOnClickListener(this);
+        txtPassword.setOnKeyListener(this);
+
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
     }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.txtSwitch) {
+
+            if (loginModeActive) {
+                loginModeActive = false;
+                btnLogin.setText("Signup");
+                txtSwitch.setText("Or, Login?");
+            } else {
+                loginModeActive = true;
+                btnLogin.setText("Login");
+                txtSwitch.setText("Or, Signup?");
+            }
+        }else if(v.getId() == R.id.logo || v.getId() == R.id.background){
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+    }
+
+    @Override
+    public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+        if(keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN){
+            loginOrSignup(v);
+        }
+
+        return false;
+    }
+
+    //Login Or SignUp method
+    public void loginOrSignup(View view){
+
+        if(txtUsername.getText().toString().matches("") || txtPassword.getText().toString().matches("")){
+            Toast.makeText(getApplicationContext(), "Username and Password required", Toast.LENGTH_SHORT).show();
+        }else{
+            if(loginModeActive){
+                ParseUser.logInInBackground(txtUsername.getText().toString(), txtPassword.getText().toString(), new LogInCallback() {
+                    @Override
+                    public void done(ParseUser user, ParseException e) {
+
+                        if(user != null){
+                            Log.i("Login", "Successful");
+                            Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
+
+                        }else{
+                            Toast.makeText(getApplicationContext(), "Login failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }else{
+                ParseUser user = new ParseUser();
+                user.setUsername(txtUsername.getText().toString());
+                user.setPassword(txtPassword.getText().toString());
+                user.signUpInBackground(new SignUpCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if(e == null){
+                            Log.i("Signup", "Successful");
+                            Toast.makeText(getApplicationContext(), "SignUp Successful", Toast.LENGTH_SHORT).show();
+
+
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Signup failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+
+
 }

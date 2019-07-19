@@ -7,7 +7,8 @@
     tools:context=".MainActivity"
     android:background="@drawable/ic_login_page_background"
     android:paddingLeft="20dp"
-    android:paddingRight="20dp">
+    android:paddingRight="20dp"
+    android:id="@+id/background">
 
     <TextView
         android:id="@+id/logo"
@@ -18,12 +19,14 @@
         android:textSize="50sp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
-        android:layout_marginTop="200dp"/>
+        android:layout_marginTop="150dp"/>
     <EditText
         android:id="@+id/txtUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/logo"
+        android:ems="10"
+        android:inputType="textPersonName"
         android:layout_marginTop="40dp"
         android:background="@drawable/custom_edit_text_bg"
         android:drawableLeft="@drawable/ic_username"/>
@@ -33,10 +36,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtUsername"
+        android:ems="10"
+        android:inputType="textPassword"
         android:layout_marginTop="10dp"
         android:background="@drawable/custom_edit_text_bg"
         android:drawableLeft="@drawable/ic_password"/>
+
     <Button
+        android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtPassword"
@@ -45,6 +52,20 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:background="@drawable/custom_button_bg"/>
+        android:background="@drawable/custom_button_bg"
+        android:onClick="loginOrSignup"/>
+
+    <TextView
+        android:id="@+id/txtSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="Or, SignUp?"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
 
 </RelativeLayout>
