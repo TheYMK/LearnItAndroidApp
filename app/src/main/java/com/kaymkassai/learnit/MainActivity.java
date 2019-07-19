@@ -1,5 +1,6 @@
 package com.kaymkassai.learnit;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
+import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -36,6 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         getSupportActionBar().hide();
 
+        //Check if a user is already logged in
+        if(ParseUser.getCurrentUser() != null){
+            showMainMenu();
+        }
 
         // Setting my views
         txtUsername = findViewById(R.id.txtUsername);
@@ -52,6 +58,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtPassword.setOnKeyListener(this);
 
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
+    }
+
+
+    //Show main menu activity
+    public void showMainMenu(){
+        Intent i = new Intent(getApplicationContext(), MainMenuActivity.class);
+
+        if(ParseUser.getCurrentUser().getUsername() != null) {
+            i.putExtra("username", ParseUser.getCurrentUser().getUsername());
+        }
+
+        startActivity(i);
     }
 
     @Override
@@ -95,9 +113,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void done(ParseUser user, ParseException e) {
 
                         if(user != null){
-                            Log.i("Login", "Successful");
                             Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-
+                            showMainMenu();
                         }else{
                             Toast.makeText(getApplicationContext(), "Login failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -111,10 +128,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void done(ParseException e) {
                         if(e == null){
-                            Log.i("Signup", "Successful");
                             Toast.makeText(getApplicationContext(), "SignUp Successful", Toast.LENGTH_SHORT).show();
-
-
+                            showMainMenu();
                         }else{
                             Toast.makeText(getApplicationContext(),"Signup failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
