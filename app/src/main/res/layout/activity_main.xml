@@ -24,10 +24,10 @@
         android:id="@+id/txtUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/logo"
+        android:layout_below="@+id/txtEmail"
         android:ems="10"
         android:inputType="textPersonName"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/custom_edit_text_bg"
         android:drawableLeft="@drawable/ic_username"/>
 
@@ -42,6 +42,17 @@
         android:background="@drawable/custom_edit_text_bg"
         android:drawableLeft="@drawable/ic_password"/>
 
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/custom_edit_text_bg"
+        android:drawableLeft="@drawable/ic_email_address"
+        android:visibility="invisible"/>
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"

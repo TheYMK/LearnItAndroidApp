@@ -49,6 +49,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 
         Intent intent = getIntent();
         final String activeUsername = intent.getStringExtra("username");
+        final String activeUserEmail = intent.getStringExtra("email");
 
         //FIND A WAY TO DISPLAY THE CURRENT USERNAME TO THE NAVIGATION HEADER
 
@@ -62,6 +63,8 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         View headerView = navigationView.getHeaderView(0);
         theUsername = headerView.findViewById(R.id.theUsername);
         theUsername.setText(activeUsername);
+        userEmail = headerView.findViewById(R.id.userEmail);
+        userEmail.setText(activeUserEmail);
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();

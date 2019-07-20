@@ -23,7 +23,7 @@ import com.parse.SignUpCallback;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener {
 
     //Views
-    EditText txtUsername, txtPassword;
+    EditText txtUsername, txtPassword, txtEmail;
     TextView logo, txtSwitch;
     Button btnLogin;
     RelativeLayout background;
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtUsername = findViewById(R.id.txtUsername);
         txtPassword = findViewById(R.id.txtPassword);
         txtSwitch = findViewById(R.id.txtSwitch);
+        txtEmail = findViewById(R.id.txtEmail);
         logo = findViewById(R.id.logo);
         btnLogin = findViewById(R.id.btnLogin);
         background = findViewById(R.id.background);
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(ParseUser.getCurrentUser().getUsername() != null) {
             i.putExtra("username", ParseUser.getCurrentUser().getUsername());
+            i.putExtra("email", ParseUser.getCurrentUser().getEmail());
         }
 
         startActivity(i);
@@ -80,10 +82,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 loginModeActive = false;
                 btnLogin.setText("Signup");
                 txtSwitch.setText("Or, Login?");
+                txtEmail.setVisibility(View.VISIBLE);
             } else {
                 loginModeActive = true;
                 btnLogin.setText("Login");
                 txtSwitch.setText("Or, Signup?");
+                txtEmail.setVisibility(View.INVISIBLE);
             }
         }else if(v.getId() == R.id.logo || v.getId() == R.id.background){
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -105,7 +109,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void loginOrSignup(View view){
 
         if(txtUsername.getText().toString().matches("") || txtPassword.getText().toString().matches("")){
-            Toast.makeText(getApplicationContext(), "Username and Password required", Toast.LENGTH_SHORT).show();
+
+           // Added code to check if the email EditText is visible or not
+            if(txtEmail.getVisibility() == View.VISIBLE){
+                //If visible check if it's empty or not
+                if(txtEmail.getText().toString().matches("")){
+                    Toast.makeText(getApplicationContext(), "Username, Password and email required", Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                Toast.makeText(getApplicationContext(), "Username and Password required", Toast.LENGTH_SHORT).show();
+            }
+
         }else{
             if(loginModeActive){
                 ParseUser.logInInBackground(txtUsername.getText().toString(), txtPassword.getText().toString(), new LogInCallback() {
@@ -124,6 +138,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 ParseUser user = new ParseUser();
                 user.setUsername(txtUsername.getText().toString());
                 user.setPassword(txtPassword.getText().toString());
+                user.setEmail(txtEmail.getText().toString());
                 user.signUpInBackground(new SignUpCallback() {
                     @Override
                     public void done(ParseException e) {
