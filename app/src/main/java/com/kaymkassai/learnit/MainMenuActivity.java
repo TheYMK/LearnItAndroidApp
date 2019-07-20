@@ -2,6 +2,7 @@ package com.kaymkassai.learnit;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -42,6 +43,7 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("Main Menu");
+        toolbar.setBackgroundColor(Color.parseColor("#FFFFFF"));
 
         profilePic = findViewById(R.id.profilePic);
 //        theUsername = findViewById(R.id.theUsername);
@@ -50,8 +52,6 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
         Intent intent = getIntent();
         final String activeUsername = intent.getStringExtra("username");
         final String activeUserEmail = intent.getStringExtra("email");
-
-        //FIND A WAY TO DISPLAY THE CURRENT USERNAME TO THE NAVIGATION HEADER
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -68,6 +68,10 @@ public class MainMenuActivity extends AppCompatActivity implements NavigationVie
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
