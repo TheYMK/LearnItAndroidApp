@@ -16,8 +16,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainMenuActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Hsk6Activity"></activity>
+        <activity android:name=".Hsk5Activity" />
+        <activity android:name=".Hsk4Activity" />
+        <activity android:name=".Hsk3Activity" />
+        <activity android:name=".Hsk2Activity" />
+        <activity android:name=".Hsk1Activity" />
+        <activity
+            android:name=".MainMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,48 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/relativeLayout"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtId"
+        android:text="0-"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="23sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCharacter"
+        android:text="汉子"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="23sp"
+        android:layout_toRightOf="@+id/txtId"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPinyin"
+        android:text="(hanzi)"
+        android:textStyle="italic"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/txtCharacter"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtMeaning"
+        android:text="Meaning"
+        android:textColor="#855d5a"
+        android:textStyle="italic"
+        android:layout_below="@+id/txtId"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
