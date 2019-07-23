@@ -21,7 +21,7 @@ public class CustomWordListAdapter extends ArrayAdapter<HskModel> {
     //View lookup cache
 
     private static class ViewHolder{
-        TextView txtId;
+        //TextView txtId;
         TextView txtCharacter;
         TextView txtPinyin;
         TextView txtMeaning;
@@ -54,7 +54,7 @@ public class CustomWordListAdapter extends ArrayAdapter<HskModel> {
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.hskrow_item, parent, false);
 
-            viewHolder.txtId = (TextView) convertView.findViewById(R.id.txtId);
+            //viewHolder.txtId = (TextView) convertView.findViewById(R.id.txtId);
             viewHolder.txtCharacter = (TextView) convertView.findViewById(R.id.txtCharacter);
             viewHolder.txtPinyin = (TextView) convertView.findViewById(R.id.txtPinyin);
             viewHolder.txtMeaning = (TextView) convertView.findViewById(R.id.txtMeaning);
@@ -72,7 +72,7 @@ public class CustomWordListAdapter extends ArrayAdapter<HskModel> {
         lastPosition = position;
 
 
-        viewHolder.txtId.setText(hskModel.getId().toString());
+        //viewHolder.txtId.setText(hskModel.getId().toString());
         viewHolder.txtCharacter.setText(hskModel.getCharacter().toString());
         viewHolder.txtPinyin.setText(hskModel.getPinyin().toString());
         viewHolder.txtMeaning.setText(hskModel.getMeaning().toString());
