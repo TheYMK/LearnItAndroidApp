@@ -46,20 +46,20 @@ public class Hsk5Activity extends AppCompatActivity {
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
-                if(e == null){
+                if (e == null) {
 
-                    if(objects.size() > 0){
+                    if (objects.size() > 0) {
 
-                        for(ParseObject object : objects){
+                        for (ParseObject object : objects) {
                             words.add(new HskModel(object.get("identifiant").toString(),
                                     object.get("character").toString(),
-                                    "(" + object.get("pinyin").toString()+ ")",
+                                    "(" + object.get("pinyin").toString() + ")",
                                     object.get("meaning").toString()));
                         }
 
                         hsk5List.setAdapter(adapter);
                     }
-                }else{
+                } else {
                     e.printStackTrace();
                 }
             }
@@ -91,23 +91,23 @@ public class Hsk5Activity extends AppCompatActivity {
                                 query1.findInBackground(new FindCallback<ParseObject>() {
                                     @Override
                                     public void done(List<ParseObject> objects, ParseException e) {
-                                        if(e == null){
-                                            if(objects.size() > 0){
+                                        if (e == null) {
+                                            if (objects.size() > 0) {
 
                                                 query1.whereEqualTo("username", ParseUser.getCurrentUser().getUsername());
 
                                                 query1.findInBackground(new FindCallback<ParseObject>() {
                                                     @Override
                                                     public void done(List<ParseObject> obj, ParseException e) {
-                                                        if(e == null){
-                                                            if(obj.size() > 0){
+                                                        if (e == null) {
+                                                            if (obj.size() > 0) {
                                                                 Toast.makeText(getApplicationContext(), "Word already in your favorites", Toast.LENGTH_SHORT).show();
-                                                            }else{
+                                                            } else {
 
                                                                 favWord.saveInBackground(new SaveCallback() {
                                                                     @Override
                                                                     public void done(ParseException e) {
-                                                                        if(e == null){
+                                                                        if (e == null) {
                                                                             Toast.makeText(getApplicationContext(), "Added in favorites successfully", Toast.LENGTH_SHORT).show();
 
                                                                             Intent intent = new Intent(getApplicationContext(), FavoriteFragment.class);
@@ -123,7 +123,7 @@ public class Hsk5Activity extends AppCompatActivity {
                                                                             NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                                                                             notificationManager.notify(1, notification);
 
-                                                                        }else{
+                                                                        } else {
                                                                             Toast.makeText(getApplicationContext(), "Error while adding data in favorites", Toast.LENGTH_SHORT).show();
 
                                                                         }
@@ -134,12 +134,12 @@ public class Hsk5Activity extends AppCompatActivity {
                                                         }
                                                     }
                                                 });
-                                            }else{
+                                            } else {
 
                                                 favWord.saveInBackground(new SaveCallback() {
                                                     @Override
                                                     public void done(ParseException e) {
-                                                        if(e == null){
+                                                        if (e == null) {
                                                             Toast.makeText(getApplicationContext(), "Added in favorites successfully", Toast.LENGTH_SHORT).show();
 
                                                             Intent intent = new Intent(getApplicationContext(), FavoriteFragment.class);
@@ -155,14 +155,14 @@ public class Hsk5Activity extends AppCompatActivity {
                                                             NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
                                                             notificationManager.notify(1, notification);
 
-                                                        }else{
+                                                        } else {
                                                             Toast.makeText(getApplicationContext(), "Error while adding data in favorites", Toast.LENGTH_SHORT).show();
 
                                                         }
                                                     }
                                                 });
                                             }
-                                        }else{
+                                        } else {
                                             e.printStackTrace();
                                         }
                                     }

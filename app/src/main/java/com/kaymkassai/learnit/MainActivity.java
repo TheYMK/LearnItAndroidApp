@@ -23,7 +23,7 @@ import com.parse.SignUpCallback;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, View.OnKeyListener {
 
     //Views
-    EditText txtUsername, txtPassword, txtEmail;
+    EditText txtUsername, txtPassword, txtEmail, txtRetypePassword;
     TextView logo, txtSwitch;
     Button btnLogin;
     RelativeLayout background;
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtPassword = findViewById(R.id.txtPassword);
         txtSwitch = findViewById(R.id.txtSwitch);
         txtEmail = findViewById(R.id.txtEmail);
+        txtRetypePassword = findViewById(R.id.txtRetypePassword);
         logo = findViewById(R.id.logo);
         btnLogin = findViewById(R.id.btnLogin);
         background = findViewById(R.id.background);
@@ -56,7 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         background.setOnClickListener(this);
         logo.setOnClickListener(this);
         txtSwitch.setOnClickListener(this);
-        txtPassword.setOnKeyListener(this);
+        txtRetypePassword.setVisibility(View.VISIBLE);
+
 
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
     }
@@ -79,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v.getId() == R.id.txtSwitch) {
 
             if (loginModeActive) {
+                txtRetypePassword.setOnKeyListener(this);
                 loginModeActive = false;
                 btnLogin.setText("Signup");
                 txtSwitch.setText("Or, Login?");
@@ -88,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 btnLogin.setText("Login");
                 txtSwitch.setText("Or, Signup?");
                 txtEmail.setVisibility(View.INVISIBLE);
+                txtRetypePassword.setVisibility(View.INVISIBLE);
             }
         }else if(v.getId() == R.id.logo || v.getId() == R.id.background){
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -111,9 +115,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(txtUsername.getText().toString().matches("") || txtPassword.getText().toString().matches("")){
 
            // Added code to check if the email EditText is visible or not
-            if(txtEmail.getVisibility() == View.VISIBLE){
+            if(txtEmail.getVisibility() == View.VISIBLE || txtRetypePassword.getVisibility() == View.VISIBLE){
                 //If visible check if it's empty or not
-                if(txtEmail.getText().toString().matches("")){
+                if(txtEmail.getText().toString().matches("") || txtRetypePassword.getText().toString().matches("")){
                     Toast.makeText(getApplicationContext(), "Username, Password and email required", Toast.LENGTH_SHORT).show();
                 }
             }else {
@@ -139,17 +143,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 user.setUsername(txtUsername.getText().toString());
                 user.setPassword(txtPassword.getText().toString());
                 user.setEmail(txtEmail.getText().toString());
-                user.signUpInBackground(new SignUpCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if(e == null){
-                            Toast.makeText(getApplicationContext(), "SignUp Successful", Toast.LENGTH_SHORT).show();
-                            showMainMenu();
-                        }else{
-                            Toast.makeText(getApplicationContext(),"Signup failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                if(txtRetypePassword.getText().toString().equals(txtPassword.getText().toString())){
+
+                    user.signUpInBackground(new SignUpCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if(e == null){
+                                Toast.makeText(getApplicationContext(), "SignUp Successful", Toast.LENGTH_SHORT).show();
+                                showMainMenu();
+                            }else{
+                                Toast.makeText(getApplicationContext(),"Signup failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
                         }
-                    }
-                });
+                    });
+                }else{
+                    Toast.makeText(getApplicationContext(), "Password don't match", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         }
     }

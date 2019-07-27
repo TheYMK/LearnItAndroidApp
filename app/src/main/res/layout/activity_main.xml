@@ -43,6 +43,19 @@
         android:drawableLeft="@drawable/ic_password"/>
 
     <EditText
+        android:id="@+id/txtRetypePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPassword"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_edit_text_bg"
+        android:drawableLeft="@drawable/ic_password"
+        android:visibility="invisible"/>
+
+
+    <EditText
         android:id="@+id/txtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,7 +70,7 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtPassword"
+        android:layout_below="@+id/txtRetypePassword"
         android:layout_marginTop="20dp"
         android:text="Login"
         android:textColor="#FFFFFF"
