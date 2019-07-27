@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         background.setOnClickListener(this);
         logo.setOnClickListener(this);
         txtSwitch.setOnClickListener(this);
-        txtRetypePassword.setVisibility(View.VISIBLE);
+        txtRetypePassword.setOnKeyListener(this);
 
 
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
@@ -81,11 +81,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(v.getId() == R.id.txtSwitch) {
 
             if (loginModeActive) {
-                txtRetypePassword.setOnKeyListener(this);
+
                 loginModeActive = false;
                 btnLogin.setText("Signup");
                 txtSwitch.setText("Or, Login?");
                 txtEmail.setVisibility(View.VISIBLE);
+                txtRetypePassword.setVisibility(View.VISIBLE);
+
             } else {
                 loginModeActive = true;
                 btnLogin.setText("Login");

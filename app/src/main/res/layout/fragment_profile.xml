@@ -16,11 +16,14 @@
             android:layout_height="wrap_content"
             android:text="Email:"
             android:textSize="20sp"/>
+
         <EditText
             android:id="@+id/profileEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
     </LinearLayout>
 
     <LinearLayout
@@ -35,11 +38,13 @@
             android:layout_height="wrap_content"
             android:text="Username:"
             android:textSize="20sp"/>
+
         <EditText
             android:id="@+id/profileUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:inputType="textPersonName" />
     </LinearLayout>
 
 
@@ -56,11 +61,13 @@
             android:layout_height="wrap_content"
             android:text="Password:"
             android:textSize="20sp"/>
+
         <EditText
             android:id="@+id/profilePassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:inputType="textVisiblePassword" />
     </LinearLayout>
 
 
