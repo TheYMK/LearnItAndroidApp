@@ -1,6 +1,10 @@
 package com.kaymkassai.learnit;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -105,6 +109,20 @@ public class Hsk5Activity extends AppCompatActivity {
                                                                     public void done(ParseException e) {
                                                                         if(e == null){
                                                                             Toast.makeText(getApplicationContext(), "Added in favorites successfully", Toast.LENGTH_SHORT).show();
+
+                                                                            Intent intent = new Intent(getApplicationContext(), FavoriteFragment.class);
+                                                                            PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 1, intent, 0);
+                                                                            Notification notification = new Notification.Builder(getApplicationContext())
+                                                                                    .setContentTitle("New Word in favorites")
+                                                                                    .setContentText(words.get(position).getCharacter() + "Added to your favorites")
+                                                                                    .setContentIntent(pendingIntent)
+                                                                                    .setSmallIcon(R.drawable.ic_info)
+                                                                                    .addAction(R.drawable.ic_favorite, "Jump to Favorites", pendingIntent)
+                                                                                    .build();
+
+                                                                            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                                                                            notificationManager.notify(1, notification);
+
                                                                         }else{
                                                                             Toast.makeText(getApplicationContext(), "Error while adding data in favorites", Toast.LENGTH_SHORT).show();
 
@@ -123,6 +141,20 @@ public class Hsk5Activity extends AppCompatActivity {
                                                     public void done(ParseException e) {
                                                         if(e == null){
                                                             Toast.makeText(getApplicationContext(), "Added in favorites successfully", Toast.LENGTH_SHORT).show();
+
+                                                            Intent intent = new Intent(getApplicationContext(), FavoriteFragment.class);
+                                                            PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 1, intent, 0);
+                                                            Notification notification = new Notification.Builder(getApplicationContext())
+                                                                    .setContentTitle("New Word in favorites")
+                                                                    .setContentText(words.get(position).getCharacter() + "Added to your favorites")
+                                                                    .setContentIntent(pendingIntent)
+                                                                    .setSmallIcon(R.drawable.ic_info)
+                                                                    .addAction(R.drawable.ic_favorite, "Jump to Favorites", pendingIntent)
+                                                                    .build();
+
+                                                            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                                                            notificationManager.notify(1, notification);
+
                                                         }else{
                                                             Toast.makeText(getApplicationContext(), "Error while adding data in favorites", Toast.LENGTH_SHORT).show();
 

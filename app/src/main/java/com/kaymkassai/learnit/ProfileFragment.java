@@ -62,9 +62,10 @@ public class ProfileFragment extends Fragment {
                                 object.saveInBackground(new SaveCallback() {
                                     @Override
                                     public void done(ParseException e) {
-
                                         if(e == null){
                                             Toast.makeText(getContext(), "Updated successful", Toast.LENGTH_SHORT).show();
+                                            ParseUser.logOut();
+                                            getActivity().finish();
                                         }else{
                                             Toast.makeText(getContext(), "Updated failed", Toast.LENGTH_SHORT).show();
                                         }
