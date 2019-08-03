@@ -1,5 +1,6 @@
 package com.kaymkassai.learnit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -20,7 +21,10 @@ public class TestsFragment extends Fragment implements View.OnClickListener {
 
 
         if(v.getId() == R.id.cvQuizz){
-            Toast.makeText(getContext(), "Quizz", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(getContext(), QuizzActivity.class);
+            startActivity(intent);
+
         }else if(v.getId() == R.id.cvHskTest){
             Toast.makeText(getContext(), "HSK test", Toast.LENGTH_SHORT).show();
         }

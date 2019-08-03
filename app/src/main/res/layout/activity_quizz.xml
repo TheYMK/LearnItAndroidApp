@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizzActivity"
+    android:padding="16dp">
+
+
+    <TextView
+        android:id="@+id/quizzTitle_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quizz title"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/quizzQuestion_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="50sp"/>
+
+    <Button
+        android:id="@+id/answer1_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quizzQuestion_text"
+        android:layout_marginTop="30dp"
+        android:tag="0"
+        android:text=""
+        android:onClick="checkAnswer"/>
+
+
+    <Button
+        android:id="@+id/answer2_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answer1_txt"
+        android:layout_marginTop="10dp"
+        android:tag="1"
+        android:text=""
+        android:onClick="checkAnswer"/>
+
+    <Button
+        android:id="@+id/answer3_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answer2_txt"
+        android:layout_marginTop="10dp"
+        android:tag="2"
+        android:text=""
+        android:onClick="checkAnswer"/>
+
+    <Button
+        android:id="@+id/answer4_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/answer3_txt"
+        android:layout_marginTop="10dp"
+        android:tag="3"
+        android:text=""
+        android:onClick="checkAnswer"/>
+
+</RelativeLayout>

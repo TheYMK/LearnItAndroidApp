@@ -61,7 +61,6 @@ public class SearchFragment extends Fragment implements View.OnKeyListener{
         adapter = new CustomWordListAdapter(words, getContext());
 
         searchList.setAdapter(adapter);
-
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
