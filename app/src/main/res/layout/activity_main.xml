@@ -5,91 +5,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/ic_login_page_background"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
+    android:background="@drawable/background"
     android:id="@+id/background">
 
+
     <TextView
-        android:id="@+id/logo"
+        android:id="@+id/txt_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="LearnIt"
-        android:textSize="50sp"
+        android:layout_below="@+id/txtSlogan"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="428dp"
+        android:fontFamily="sans-serif"
+        android:text="You are not a member?"
+        android:textColor="@color/gray"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtSlogan"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="427dp"
+        android:layout_toRightOf="@+id/txt_bottom"
+        android:fontFamily="sans-serif"
+        android:text="Register"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LEARN IT"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="150dp"/>
-    <EditText
-        android:id="@+id/txtUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtEmail"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_edit_text_bg"
-        android:drawableLeft="@drawable/ic_username"/>
+        android:textSize="40sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"/>
 
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/txtSlogan"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtUsername"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_edit_text_bg"
-        android:drawableLeft="@drawable/ic_password"/>
+        android:text="Mandarin made easy"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:alpha="0.5"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/txtLogo"/>
 
-    <EditText
-        android:id="@+id/txtRetypePassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtPassword"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/custom_edit_text_bg"
-        android:drawableLeft="@drawable/ic_password"
-        android:visibility="invisible"/>
-
-
-    <EditText
-        android:id="@+id/txtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/logo"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/custom_edit_text_bg"
-        android:drawableLeft="@drawable/ic_email_address"
-        android:visibility="invisible"/>
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtRetypePassword"
-        android:layout_marginTop="20dp"
-        android:text="Login"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textSize="20sp"
+        android:layout_width="162dp"
+        android:layout_height="52dp"
+        android:layout_below="@id/txtSlogan"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/custom_button_bg"
-        android:onClick="loginOrSignup"/>
-
-    <TextView
-        android:id="@+id/txtSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnLogin"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:text="Or, SignUp?"
-        android:textColor="#FFFFFF"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="20dp"
         android:textStyle="bold"
-        android:textSize="20sp"/>
-
+        android:onClick="login"/>
 
 </RelativeLayout>

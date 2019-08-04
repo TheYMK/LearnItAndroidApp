@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuizzMenuActivity">
+
+    <Button
+        android:id="@+id/btnHsk1"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:text="Hsk Level 1"
+        android:onClick="quizzActivityOpener"/>
+    <Button
+        android:id="@+id/btnHsk2"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnHsk1"
+        android:layout_centerHorizontal="true"
+        android:text="Hsk Level 2"
+        android:onClick="quizzActivityOpener"/>
+    <Button
+        android:id="@+id/btnHsk3"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnHsk2"
+        android:layout_centerHorizontal="true"
+        android:text="Hsk Level 3"
+        android:onClick="quizzActivityOpener"/>
+    <Button
+        android:id="@+id/btnHsk4"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnHsk3"
+        android:layout_centerHorizontal="true"
+        android:text="Hsk Level 4"
+        android:onClick="quizzActivityOpener"/>
+    <Button
+        android:id="@+id/btnHsk5"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnHsk4"
+        android:layout_centerHorizontal="true"
+        android:text="Hsk Level 5"
+        android:onClick="quizzActivityOpener"/>
+    <Button
+        android:id="@+id/btnHsk6"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnHsk5"
+        android:layout_centerHorizontal="true"
+        android:text="Hsk Level 6"
+        android:onClick="quizzActivityOpener"/>
+
+</RelativeLayout>

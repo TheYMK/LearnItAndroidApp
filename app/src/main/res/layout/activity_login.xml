@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:padding="16dp"
+    android:id="@+id/relBackground">
+
+
+    <ImageView
+        android:id="@+id/goBack_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        android:layout_marginLeft="20dp"
+        android:onClick="goToPreviousActivity"/>
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello There!"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/gray"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"/>
+
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="313dp"
+        android:layout_height="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/input_field"
+        android:hint="Enter email"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/gray"
+        android:visibility="invisible"/>
+
+    <EditText
+        android:id="@+id/txtUsername"
+        android:layout_width="313dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/txtEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Enter Username"
+        android:textColorHint="@color/gray"
+        android:background="@drawable/input_field"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="313dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/txtUsername"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Enter password"
+        android:textColorHint="@color/gray"
+        android:background="@drawable/input_field"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/txtRetypePassword"
+        android:layout_width="313dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/txtPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:hint="Retype password"
+        android:textColorHint="@color/gray"
+        android:background="@drawable/input_field"
+        android:inputType="textPassword"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="162dp"
+        android:layout_height="52dp"
+        android:layout_below="@id/txtRetypePassword"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_button_bg"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:onClick="loginOrSignup"/>
+
+    <TextView
+        android:id="@+id/txtNeedHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Need help?"
+        android:textColor="@color/red"
+        android:layout_toRightOf="@+id/btnLogin"
+        android:layout_below="@id/txtRetypePassword"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="50dp"/>
+
+
+    <TextView
+        android:id="@+id/txt_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_alignParentStart="true"
+        android:fontFamily="sans-serif"
+        android:layout_marginLeft="27dp"
+        android:text="You are not a member?"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/gray"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/txtSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnLogin"
+        android:layout_toRightOf="@+id/txt_bottom"
+        android:fontFamily="sans-serif"
+        android:text="Register"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="7dp"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

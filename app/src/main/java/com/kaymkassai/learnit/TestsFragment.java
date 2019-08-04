@@ -22,7 +22,7 @@ public class TestsFragment extends Fragment implements View.OnClickListener {
 
         if(v.getId() == R.id.cvQuizz){
 
-            Intent intent = new Intent(getContext(), QuizzActivity.class);
+            Intent intent = new Intent(getContext(), QuizzMenuActivity.class);
             startActivity(intent);
 
         }else if(v.getId() == R.id.cvHskTest){
