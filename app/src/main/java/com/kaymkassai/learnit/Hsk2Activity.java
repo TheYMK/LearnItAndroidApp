@@ -33,7 +33,7 @@ public class Hsk2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hsk2);
-
+        setTitle("HSK2 List");
 
         hsk2List = findViewById(R.id.hsk2List);
         adapter = new CustomWordListAdapter(words, getApplicationContext());

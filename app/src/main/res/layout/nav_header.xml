@@ -2,40 +2,55 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:background="@drawable/ic_login_page_background"
+    android:background="@drawable/background"
     android:gravity="bottom"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+
     <ImageView
         android:id="@+id/profilePic"
-        android:layout_width="81dp"
-        android:layout_height="62dp"
+        android:layout_width="66dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="70dp"
         android:src="@drawable/ic_profilepic" />
 
-    <TextView
-        android:id="@+id/theUsername"
+
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="8dp"
-        android:text="Username"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:orientation="vertical"
+        android:layout_marginBottom="80dp">
 
-    <TextView
-        android:id="@+id/userEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="unknown@ukn.uk" />
+        <TextView
+            android:id="@+id/theUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="Username"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
-    <TextView
+        <TextView
+            android:id="@+id/userEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="unknown@ukn.uk"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+
+
+    <ImageView
         android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
         android:layout_gravity="end"
-        android:onClick="logout"/>
+        android:onClick="logout"
+        android:src="@drawable/ic_power"/>
 
 </LinearLayout>

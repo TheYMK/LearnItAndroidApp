@@ -34,7 +34,7 @@ public class Hsk4Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hsk4);
-
+        setTitle("HSK4 List");
 
         hsk4List = findViewById(R.id.hsk4List);
         adapter = new CustomWordListAdapter(words, getApplicationContext());

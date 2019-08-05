@@ -7,19 +7,19 @@
 
     <EditText
         android:id="@+id/txtSearch"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="266dp"
+        android:layout_height="43dp"
+        android:background="@drawable/input_field"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Type a word to search..."/>
+        android:hint="Type a word to search..."
+        android:inputType="textPersonName" />
 
     <ImageView
         android:id="@+id/btnSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="36dp"
+        android:layout_height="41dp"
         android:layout_toRightOf="@+id/txtSearch"
-        android:src="@drawable/ic_search"
-        android:layout_marginTop="10dp"/>
+        android:src="@drawable/ic_search" />
 
     <ListView
         android:id="@+id/searchList"

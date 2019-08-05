@@ -34,6 +34,7 @@ public class Hsk6Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hsk6);
+        setTitle("HSK6 List");
 
 
         hsk6List = findViewById(R.id.hsk6List);

@@ -4,82 +4,62 @@
     android:layout_height="match_parent"
     android:padding="16dp">
 
-    <LinearLayout
-        android:id="@+id/lyEmail"
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp">
+        android:text="Edit profile"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/gray"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"/>
 
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email:"
-            android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/profileEmail"
+        android:layout_width="313dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:layout_marginTop="150dp"
+        android:inputType="textEmailAddress"
+        android:hint="Enter email"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/input_field"/>
 
-        <EditText
-            android:id="@+id/profileEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:ems="10"
-            android:inputType="textEmailAddress" />
-    </LinearLayout>
+    <EditText
+        android:id="@+id/profileUsername"
+        android:layout_width="313dp"
+        android:layout_height="45dp"
+        android:inputType="textPersonName"
+        android:hint="Enter username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/input_field"
+        android:layout_below="@+id/profileEmail"/>
 
-    <LinearLayout
-        android:id="@+id/lyUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lyEmail">
-
-        <TextView
-            android:id="@+id/tvUsername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Username:"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:id="@+id/profileUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:inputType="textPersonName" />
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:id="@+id/lyPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lyUsername">
-
-        <TextView
-            android:id="@+id/tvPassword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Password:"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:id="@+id/profilePassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:inputType="textVisiblePassword" />
-    </LinearLayout>
-
+    <EditText
+        android:id="@+id/profilePassword"
+        android:layout_width="313dp"
+        android:layout_height="45dp"
+        android:background="@drawable/input_field"
+        android:inputType="textVisiblePassword"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:hint="Enter password"
+        android:layout_below="@+id/profileUsername"/>
 
     <Button
         android:id="@+id/btnEdit"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:text="Edit"
-        android:textStyle="bold"
+        android:layout_below="@+id/profilePassword"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/lyPassword"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_button_bg"
+        android:text="Edit"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
