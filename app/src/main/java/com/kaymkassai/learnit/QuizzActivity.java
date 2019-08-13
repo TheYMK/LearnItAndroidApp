@@ -26,7 +26,9 @@ public class QuizzActivity extends AppCompatActivity {
     ArrayList<String> characters;
     ArrayList<String> pinyins;
 
-    String[] answers = new String[4];
+    String[] answers;
+
+    ArrayList<ParseObject> trash;
 
     int randomChar = 0;
     int locationCorrectAnswer;
@@ -36,6 +38,8 @@ public class QuizzActivity extends AppCompatActivity {
     public void generateQuizz(){
         final Random rand = new Random();
         randomChar = rand.nextInt(characters.size());
+
+        answers = new String[4];
 
         answers[0] = "a";
         answers[1] = "b";
@@ -57,7 +61,7 @@ public class QuizzActivity extends AppCompatActivity {
                     if(objects.size() > 0){
                         for (ParseObject object : objects){
                             quizzQuestion_text.setText(object.getString("character"));
-                            answer1_txt.setText(object.getString("pinyin"));
+//                            answer1_txt.setText(object.getString("pinyin"));
 
                             locationCorrectAnswer = rand.nextInt(4);
 
@@ -66,6 +70,7 @@ public class QuizzActivity extends AppCompatActivity {
                                     answers[i] = object.getString("pinyin");
                                 }else{
                                     incorrectAnswerLocation = rand.nextInt(characters.size());
+                                    incorrectAnswerLocation -= 1;
 
                                     while(incorrectAnswerLocation == randomChar){
                                         incorrectAnswerLocation = rand.nextInt(characters.size());
@@ -100,7 +105,7 @@ public class QuizzActivity extends AppCompatActivity {
 
         }else{
 
-            Toast.makeText(getApplicationContext(), "Wrong it was ", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Incorrect", Toast.LENGTH_LONG).show();
 
         }
 
@@ -118,6 +123,7 @@ public class QuizzActivity extends AppCompatActivity {
 
         characters = new ArrayList<>();
         pinyins = new ArrayList<>();
+        trash = new ArrayList<>();
 
         quizzTitle_text = findViewById(R.id.quizzTitle_text);
         quizzQuestion_text = findViewById(R.id.quizzQuestion_text);
@@ -138,14 +144,13 @@ public class QuizzActivity extends AppCompatActivity {
                             pinyins.add(object.getString("pinyin"));
                         }
 
-                        generateQuizz();
+                       generateQuizz();
                     }
                 }else{
                     e.printStackTrace();
                 }
             }
         });
-
     }
 
 }
