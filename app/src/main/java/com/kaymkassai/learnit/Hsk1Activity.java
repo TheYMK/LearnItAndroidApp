@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -30,24 +31,28 @@ public class Hsk1Activity extends AppCompatActivity {
 
     ListView hsk1List;
     CustomWordListAdapter adapter;
-    ArrayList<HskModel> words = new ArrayList<>();
+    ArrayList<HskModel> words;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hsk1);
         setTitle("HSK1 List");
 
+        words = new ArrayList<>();
 
         hsk1List = findViewById(R.id.hsk1List);
         adapter = new CustomWordListAdapter(words, getApplicationContext());
 
-        //Filling the ListView
+        //Filling the ListView-
         final ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("HSK1");
         query.addAscendingOrder("identifiant");
+        query.setLimit(153);
 
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
+
                 if(e == null){
 
                     if(objects.size() > 0){
