@@ -5,18 +5,15 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -73,11 +70,9 @@ public class Hsk1Activity extends AppCompatActivity {
             }
         });
 
-
         hsk1List.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-
                 new AlertDialog.Builder(Hsk1Activity.this)
                         .setIcon(android.R.drawable.ic_menu_add)
                         .setTitle("Add to favorite")
@@ -102,7 +97,6 @@ public class Hsk1Activity extends AppCompatActivity {
                                     public void done(List<ParseObject> objects, ParseException e) {
                                         if(e == null){
                                             if(objects.size() > 0){
-
                                                 query1.whereEqualTo("username", ParseUser.getCurrentUser().getUsername());
 
                                                 query1.findInBackground(new FindCallback<ParseObject>() {
@@ -112,13 +106,11 @@ public class Hsk1Activity extends AppCompatActivity {
                                                             if(obj.size() > 0){
                                                                 Toast.makeText(getApplicationContext(), "Word already in your favorites", Toast.LENGTH_SHORT).show();
                                                             }else{
-
                                                                 favWord.saveInBackground(new SaveCallback() {
                                                                     @Override
                                                                     public void done(ParseException e) {
                                                                         if(e == null){
                                                                             Toast.makeText(getApplicationContext(), "Added in favorites successfully", Toast.LENGTH_SHORT).show();
-
 
                                                                             Intent intent = new Intent(getApplicationContext(), FavoriteFragment.class);
                                                                             PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 1, intent, 0);
@@ -145,7 +137,6 @@ public class Hsk1Activity extends AppCompatActivity {
                                                     }
                                                 });
                                             }else{
-
                                                 favWord.saveInBackground(new SaveCallback() {
                                                     @Override
                                                     public void done(ParseException e) {

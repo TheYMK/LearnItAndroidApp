@@ -22,13 +22,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:text=""
         android:textColor="#000000"
         android:textSize="50sp"/>
 
     <Button
-        android:id="@+id/answer1_txt"
+        android:id="@+id/answer1_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/quizzQuestion_text"
@@ -39,30 +39,30 @@
 
 
     <Button
-        android:id="@+id/answer2_txt"
+        android:id="@+id/answer2_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/answer1_txt"
+        android:layout_below="@+id/answer1_btn"
         android:layout_marginTop="10dp"
         android:tag="1"
         android:text=""
         android:onClick="checkAnswer"/>
 
     <Button
-        android:id="@+id/answer3_txt"
+        android:id="@+id/answer3_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/answer2_txt"
+        android:layout_below="@+id/answer2_btn"
         android:layout_marginTop="10dp"
         android:tag="2"
         android:text=""
         android:onClick="checkAnswer"/>
 
     <Button
-        android:id="@+id/answer4_txt"
+        android:id="@+id/answer4_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/answer3_txt"
+        android:layout_below="@+id/answer3_btn"
         android:layout_marginTop="10dp"
         android:tag="3"
         android:text=""
@@ -72,8 +72,31 @@
         android:id="@+id/result_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/answer4_txt"
+        android:layout_below="@id/answer4_btn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"/>
 
+    <TextView
+        android:id="@+id/score_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00/00"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/red"/>
+
+    <Button
+        android:id="@+id/replay_btn"
+        android:layout_width="162dp"
+        android:layout_height="52dp"
+        android:layout_below="@id/result_txt"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/custom_button_bg"
+        android:text="Replay"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:onClick="replay"
+        android:textStyle="bold"
+        android:visibility="gone"/>
 </RelativeLayout>
