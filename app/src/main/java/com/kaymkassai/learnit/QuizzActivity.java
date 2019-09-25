@@ -78,19 +78,19 @@ public class QuizzActivity extends AppCompatActivity {
                                     } else {
                                         incorrectAnswerLocation = rand.nextInt((max - min) + 1) + min;
 
-                                        Log.i("INCORRECTANSWER", String.valueOf(incorrectAnswerLocation));
+                                        //Log.i("INCORRECTANSWER", String.valueOf(incorrectAnswerLocation));
 
                                         //MANUAL DEBUGGING
-                                        Log.i("CHARACTERSIZE", String.valueOf(characters.size()));
+                                        //Log.i("CHARACTERSIZE", String.valueOf(characters.size()));
 
                                         incorrectAnswerLocation -= 1;
 
                                         while (incorrectAnswerLocation == (randomChar - 1)) {
                                             incorrectAnswerLocation = rand.nextInt((max - min) + 1) + min;
-                                            Log.i("INCORRECTANSWER2", String.valueOf(incorrectAnswerLocation));
+                                          //  Log.i("INCORRECTANSWER2", String.valueOf(incorrectAnswerLocation));
                                         }
                                         answers[i] = pinyins.get(incorrectAnswerLocation);
-                                        Log.i("ANSWERi", pinyins.get(incorrectAnswerLocation));
+                                        //Log.i("ANSWERi", pinyins.get(incorrectAnswerLocation));
                                     }
                                 }
                                 answer1_btn.setText(answers[0]);
